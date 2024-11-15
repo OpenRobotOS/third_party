@@ -48,7 +48,7 @@ add_global_cmake_flag "-O3 -march=native"
 add_global_cmake_config "-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/opt/openrobotlib"
 # Adding repositories directly in the script
 add_repo "yaml-cpp" "https://github.com/jbeder/yaml-cpp.git" "0.8.0" "" ""
-add_repo "spdlog" "https://github.com/gabime/spdlog.git" "v1.15.0" "" ""
+add_repo "spdlog" "https://github.com/gabime/spdlog.git" "v1.15.0" "-DSPDLOG_USE_STD_FORMAT=ON" ""
 add_repo "lcm" "https://github.com/lcm-proj/lcm.git" "v1.5.0" "" ""
 
 # Function to download all repositories
