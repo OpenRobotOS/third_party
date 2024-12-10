@@ -19,11 +19,11 @@ function add_repo() {
     local name="$1"
     local url="$2"
     local tag="$3"
-    local cmake_config="${4:-default_config}"
+    local cmake_config="${4:-}"
     local cmake_flag="${5}"
     local custom_install="${6:-}"
 
-    if [ -z "$name" ] || [ -z "$url" || [ -z "$tag" ]; then
+    if [ -z "$name" ] || [ -z "$url" ] || [ -z "$tag" ]; then
         echo "Usage: add_repo <name> <url> <tag> <cmake_config> <cmake_flag> [custom_install]"
         return 1
     fi
@@ -57,6 +57,7 @@ add_repo "yaml-cpp" "https://github.com/jbeder/yaml-cpp.git" "0.8.0" "" "" ""
 add_repo "spdlog" "https://github.com/gabime/spdlog.git" "v1.15.0" "-DSPDLOG_USE_STD_FORMAT=ON -DSPDLOG_BUILD_SHARED=ON -DSPDLOG_BUILD_PIC=ON" "" ""
 add_repo "lcm" "https://github.com/lcm-proj/lcm.git" "v1.5.0" "" "" ""
 add_repo "boost" "https://github.com/boostorg/boost.git" "boost-1.86.0" "" "" "install_boost_lib"
+add_repo "eigen" "https://gitlab.com/libeigen/eigen.git" "3.4.0" "" "" ""
 
 # Function to download all repositories
 function download() {
